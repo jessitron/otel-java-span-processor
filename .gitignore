@@ -1,1 +1,4 @@
-build/\nbin/\n
+build/
+.gradle/
+.vscode/
+bin/
