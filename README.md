@@ -1,10 +1,14 @@
-# an extension that works
+# Adding a Span Processor to the OpenTelemetry Java instrumentation
+
+This turns out to be harder than in Python or Node. You don't get to change code in initialization inside your app, because the OpenTelemetry agent is loaded separately from your app.
+
+## Developing a Span Processor
+
+Here's the process I followed:
 
 I copied from https://github.com/open-telemetry/opentelemetry-java-instrumentation/tree/746a7a667c2f0655fafa65bda07aabdf65e3a3a3/examples/extension#readme
 
 and then deleted most of it, but not TOO much.
-
-tested this in conjunction with https://github.com/jessitron/pathetic-java-web-app
 
 Here is what I did to the code:
 
@@ -14,6 +18,10 @@ Here is what I did to the code:
 - deleted most of the examples; what I want is the SpanProcessor
 - do NOT delete the DemoAutoConfigurationCustomizerProvider, you need that
 - instead, delete most of the stuff that the AutoConfigurationCustomizerProvider was doing, so instead it provides only the span processor.
+
+## Using the span processor
+
+I tested this in conjunction with https://github.com/jessitron/pathetic-java-web-app
 
 Here is what I did to use it:
 
